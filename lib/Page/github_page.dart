@@ -16,13 +16,20 @@ class _GithubPageState extends State<GithubPage> {
             onPressed: () {
             // do something
             },
-            child: Text('按钮'),
+            // ignore: sort_child_properties_last
+            child: Text('branch'),
             style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
               ),
             // other properties
             ),
+          ),
+          DropdownButton(items: [
+            DropdownMenuItem(child: Text("Item1")),
+            DropdownMenuItem(child: Text("Item2"))
+            ], 
+            onChanged: (value) {}
           ),
           BranchCard(),
         ],
