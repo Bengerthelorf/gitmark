@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github/github.dart';
 
 class GithubPage extends StatefulWidget {
   @override
@@ -6,34 +7,56 @@ class GithubPage extends StatefulWidget {
 }
 
 class _GithubPageState extends State<GithubPage> {
+  final List<String> _fruits = ['Apple', 'Banana', 'Cherry', 'Durian'];
+  String? _selectedFruit;
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          ElevatedButton(
-            onPressed: () {
-            // do something
-            },
-            // ignore: sort_child_properties_last
-            child: Text('branch'),
-            style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-              ),
-            // other properties
-            ),
-          ),
-          //Dropdownbuttomstart
 
-          // Dropdown buttom end
-          BranchCard(),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: 
+            
+          PopupMenuButton<String>(
+            onSelected: (String value) {
+              setState(() {
+                _selectedFruit = value;
+              });
+            },
+            itemBuilder: (BuildContext ctx) {
+              print('itemBuilder');
+              return _fruits.map<PopupMenuItem<String>>((String value) {
+                return PopupMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList();
+            },
+          ),
+
+          ),
+
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 50,
+            bottom: 0,
+            child: Center(
+              child: BranchCard()
+            )
+            )
         ],
       ),
     );
   }
 }
+
+
 
 class BranchCard extends StatelessWidget {
   const BranchCard({Key? key}) : super(key: key);
@@ -41,20 +64,28 @@ class BranchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var style = theme.textTheme.headlineSmall!.copyWith(
-    color: theme.colorScheme.onSecondary,
+    var style = theme.textTheme.bodyMedium!.copyWith(
+      color: theme.colorScheme.onSecondary,
     );
 
     return Card(
       color: theme.colorScheme.secondary,
-      child: Column(
-        children: [
-          Text(
-            'Branch Card',
-            style: style.copyWith(fontWeight: FontWeight.w200),
-
-          ),
-        ],
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(width: 10, height: 10), // <--- Add this line
+                Text(
+                  'Text',
+                  style: style.copyWith(fontWeight: FontWeight.normal),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
