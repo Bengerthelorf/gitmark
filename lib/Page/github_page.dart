@@ -9,6 +9,7 @@ class GithubPage extends StatefulWidget {
 class _GithubPageState extends State<GithubPage> {
   final List<String> _fruits = ['Apple', 'Banana', 'Cherry', 'Durian'];
   String? _selectedFruit;
+  final github = GitHub(auth: Authentication.anonymous());
 
   @override
   Widget build(BuildContext context) {
