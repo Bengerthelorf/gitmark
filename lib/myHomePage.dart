@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Page/github.dart';
 import 'Page/settting.dart';
+import 'Page/myHomeMarkdown.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -20,14 +21,81 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.menu),
-            onPressed: () {},
+            onPressed: () {
+              showMenu(
+            context: context, 
+            position: RelativeRect.fromLTRB(100, 0, 0, 0),
+            items: [
+              PopupMenuItem(
+                child: Text('font size'),
+                value: 1,
+                // onTap: () {
+                //   Navigator.of(context).pop();
+                //   showDialog(context: context, builder: (context) => SimpleDialog(
+                //     title: Text('choose a font size'),
+                //     children: [
+                //       TextButton(
+                //         onPressed: () {
+                //           Navigator.of(context).pop();
+                //         },
+                //         child: Text('small'),
+                //       ),
+                //       TextButton(
+                //         onPressed: () {
+                //           Navigator.of(context).pop();
+                //         },
+                //         child: Text('medium'),
+                //       ),
+                //       TextButton(
+                //         onPressed: () {
+                //           Navigator.of(context).pop();
+                //         },
+                //         child: Text('large'),
+                //       ),
+                //     ],
+                //   ));
+                // },
+              ),
+              PopupMenuItem(
+                child: Text('font color'),
+                value: 2,
+              ),
+              PopupMenuItem(
+                child: Text('background color'),
+                value: 3,
+              ),
+            ],
+          );
+            },
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.folder),
         onPressed: () {
-          
+          showDialog(context: context, builder: (context) => SimpleDialog(
+            title: Text('choose a repository'),
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('repository1'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('repository2'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('repository3'),
+              ),
+            ],
+          ));
         },
       ),
       drawer: Drawer(
@@ -55,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         )
       ),
+      body: myHomeMark(),
     );
   }
 }
