@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(8.0),
           children: [
             ListTile(
-              title: Text('Repositories'),
+              title: Text('Github Account'),
               leading: Icon(Icons.inbox),
               onTap: () {
                 Navigator.of(context).pop();
