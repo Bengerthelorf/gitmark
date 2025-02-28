@@ -1,0 +1,24 @@
+"/Users/zane/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.3/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/UserContentControllerProxyAPIDelegate.swift":
+  dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/UserContentControllerProxyAPIDelegate.d"
+  object: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/UserContentControllerProxyAPIDelegate.o"
+  const-values: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/UserContentControllerProxyAPIDelegate.swiftconstvalues"
+  swift-dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/UserContentControllerProxyAPIDelegate.swiftdeps"
+  diagnostics: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/UserContentControllerProxyAPIDelegate.dia"
+"/Users/zane/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.3/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/URLProxyAPIDelegate.swift":
+  const-values: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProxyAPIDelegate.o"
+  diagnostics: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProxyAPIDelegate.dia"
+  swift-dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProxyAPIDelegate.swiftdeps"
+  dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProxyAPIDelegate.d"
+"/Users/zane/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.3/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/URLRequestProxyAPIDelegate.swift":
+  dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLRequestProxyAPIDelegate.d"
+  const-values: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLRequestProxyAPIDelegate.swiftconstvalues"
+  swift-dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLRequestProxyAPIDelegate.swiftdeps"
+  object: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLRequestProxyAPIDelegate.o"
+  diagnostics: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLRequestProxyAPIDelegate.dia"
+"/Users/zane/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.3/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/URLProtectionSpaceProxyAPIDelegate.swift":
+  diagnostics: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProtectionSpaceProxyAPIDelegate.dia"
+  dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProtectionSpaceProxyAPIDelegate.d"
+  const-values: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProtectionSpaceProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProtectionSpaceProxyAPIDelegate.o"
+  swift-dependencies: "/Users/zane/Documents/gitmark/build/macos/Build/Intermediates.noindex/Pods.build/Debug/webview_flutter_wkwebview.build/Objects-normal/arm64/URLProtectionSpaceProxyAPIDelegate.swiftdeps"
