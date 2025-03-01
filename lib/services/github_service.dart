@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
+// import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'dart:io' if (dart.library.html) 'dart:html';
 import '../models/repository.dart';
 import '../models/content_item.dart';
 
 class GitHubService {
+  final Logger _logger = Logger('GitHubService');
   final Dio _dio = Dio(BaseOptions(
     baseUrl: 'https://api.github.com',
     headers: {
@@ -28,13 +31,19 @@ class GitHubService {
             receiveTimeout: const Duration(seconds: 5),
             sendTimeout: const Duration(seconds: 5),
           ));
+      
+      if (response.statusCode != 200) {
+        _logger.warning('API returned status code: ${response.statusCode}');
+      }
+      
       return response.statusCode == 200;
     } catch (e) {
+      _logger.warning('Network connection error: $e');
       return false;
     }
   }
 
-  // // 获取仓库信息
+  // 获取仓库信息
   Future<Repository> getRepository(String owner, String repo) async {
     try {
       // 首先检查网络连接
@@ -47,6 +56,7 @@ class GitHubService {
       return Repository.fromJson(response.data);
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionError) {
+        _logger.severe('Connection error to GitHub: ${e.message}');
         throw Exception('连接到GitHub失败: 请检查您的网络连接');
       } else if (e.response != null) {
         if (e.response!.statusCode == 403) {
@@ -57,10 +67,10 @@ class GitHubService {
       }
       throw Exception('获取仓库信息失败: ${e.message}');
     } catch (e) {
+      _logger.severe('General error: $e');
       throw Exception('获取仓库信息失败: $e');
     }
   }
-
 
   // 获取分支列表
   Future<List<String>> getBranches(String owner, String repo) async {
@@ -105,7 +115,7 @@ class GitHubService {
         '/repos/$owner/$repo/contents/$encodedPath',
         queryParameters: {'ref': branch},
       );
-      
+
       if (response.data is List) {
         return (response.data as List)
             .map((item) => ContentItem.fromJson(item))
@@ -114,17 +124,17 @@ class GitHubService {
         // 单个文件的情况
         return [ContentItem.fromJson(response.data)];
       }
-      } on DioException catch (e) {
-        if (e.type == DioExceptionType.connectionError) {
-          throw Exception('连接到GitHub失败: 请检查您的网络连接和应用权限设置');
-        } else if (e.response != null) {
-          if (e.response!.statusCode == 403) {
-            throw Exception('API请求限制: 请稍后再试或添加GitHub令牌');
-          } else if (e.response!.statusCode == 404) {
-            throw Exception('找不到仓库: 请确认仓库地址是否正确');
-          }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionError) {
+        throw Exception('连接到GitHub失败: 请检查您的网络连接和应用权限设置');
+      } else if (e.response != null) {
+        if (e.response!.statusCode == 403) {
+          throw Exception('API请求限制: 请稍后再试或添加GitHub令牌');
+        } else if (e.response!.statusCode == 404) {
+          throw Exception('找不到仓库: 请确认仓库地址是否正确');
         }
-        throw Exception('获取仓库信息失败: ${e.message}');
+      }
+      throw Exception('获取仓库信息失败: ${e.message}');
     } catch (e) {
       throw Exception('Failed to get contents: $e');
     }
@@ -168,7 +178,7 @@ class GitHubService {
         '/repos/$owner/$repo/readme',
         queryParameters: {'ref': branch},
       );
-      
+
       final downloadUrl = response.data['download_url'];
       return await getFileContent(downloadUrl);
     } on DioException catch (e) {
