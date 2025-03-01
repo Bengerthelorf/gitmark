@@ -64,15 +64,15 @@ class RepositoryView extends StatelessWidget {
                           return ListTile(
                             leading: Icon(
                               item.type == ContentType.dir
-                                  ? Icons.folder
+                                  ? Icons.folder_outlined
                                   : item.isMarkdown
-                                      ? Icons.description
-                                      : Icons.insert_drive_file,
+                                      ? Icons.description_outlined
+                                      : Icons.insert_drive_file_outlined,
                               color: item.type == ContentType.dir
-                                  ? Colors.amber
+                                  ? Theme.of(context).colorScheme.primary
                                   : item.isMarkdown
-                                      ? Colors.blue
-                                      : Colors.grey,
+                                      ? Theme.of(context).colorScheme.secondary
+                                      : Theme.of(context).colorScheme.onSurfaceVariant,
                             ),
                             title: Text(
                               item.name,

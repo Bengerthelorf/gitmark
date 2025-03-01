@@ -30,7 +30,7 @@ class PathNavigator extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
             tooltip: '根目录',
             onPressed: path.isEmpty
                 ? null
@@ -38,7 +38,7 @@ class PathNavigator extends StatelessWidget {
           ),
           if (path.isNotEmpty)
             IconButton(
-              icon: const Icon(Icons.arrow_upward),
+              icon: const Icon(Icons.arrow_upward_outlined),
               tooltip: '上级目录',
               onPressed: onNavigateUp,
             ),

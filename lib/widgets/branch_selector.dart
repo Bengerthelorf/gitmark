@@ -19,16 +19,19 @@ class BranchSelector extends StatelessWidget {
       icon: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.alt_route),
+          Icon(Icons.alt_route_outlined, 
+              color: Theme.of(context).colorScheme.primary),
           const SizedBox(width: 4),
           Text(
             currentBranch,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(width: 4),
-          const Icon(Icons.arrow_drop_down),
+          Icon(Icons.arrow_drop_down,
+              color: Theme.of(context).colorScheme.primary),
         ],
       ),
       itemBuilder: (context) {
@@ -38,9 +41,11 @@ class BranchSelector extends StatelessWidget {
             child: Row(
               children: [
                 if (branch == currentBranch)
-                  const Icon(Icons.check, size: 16, color: Colors.green)
-                else
-                  const SizedBox(width: 16),
+                    Icon(Icons.check,
+                        size: 16, 
+                        color: Theme.of(context).colorScheme.primary)
+                  else
+                    const SizedBox(width: 16),
                 const SizedBox(width: 8),
                 Text(branch),
               ],

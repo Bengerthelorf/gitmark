@@ -116,7 +116,8 @@ class _HomeViewState extends State<HomeView> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      prefixIcon: const Icon(Icons.link),
+                      prefixIcon: Icon(Icons.link_outlined,
+                          color: Theme.of(context).colorScheme.primary),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -132,20 +133,36 @@ class _HomeViewState extends State<HomeView> {
                   ElevatedButton.icon(
                     onPressed: _isLoading ? null : _loadRepository,
                     icon: _isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
+                              // 确保加载指示器颜色与文本颜色匹配
+                              color: Theme.of(context).colorScheme.onPrimary,
                             ),
                           )
-                        : const Icon(Icons.search),
-                    label: const Text('打开仓库'),
+                        : Icon(
+                            Icons.search_outlined,
+                            // 确保图标颜色与文本颜色匹配
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                    label: Text(
+                      '打开仓库',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Theme.of(context).colorScheme.onPrimary,
                       padding: const EdgeInsets.symmetric(
                         vertical: 12,
                         horizontal: 24,
                       ),
+                      // 添加一点视觉效果
+                      elevation: 2,
                     ),
                   ),
                 ],
@@ -174,8 +191,11 @@ class _HomeViewState extends State<HomeView> {
                           repo.replaceFirst('https://github.com/', ''),
                           overflow: TextOverflow.ellipsis,
                         ),
-                        leading: const Icon(Icons.history),
-                        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                        leading: Icon(Icons.history_outlined, 
+                            color: Theme.of(context).colorScheme.secondary),
+                        trailing: Icon(Icons.arrow_forward_ios, 
+                            size: 16, 
+                            color: Theme.of(context).colorScheme.onSurfaceVariant),
                         onTap: () {
                           _urlController.text = repo;
                           _loadRepository();
